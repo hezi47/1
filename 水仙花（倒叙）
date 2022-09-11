@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf_s("%d", &n);
+    int a = 1;
+    int b = 1;
+    int sum = 0;
+    int h = 0;
+    while (a < n) {
+        b = b * 10;
+        a++;
+    }
+    int t = b;
+    while (t < b * 10) {//100-1000
+        int e = t;//t另存防止后期使用误改循环出错
+        for (h = 0; h < n; h++) {//0-3/7
+            int c = e % 10;//取个位
+            e = e / 10;//消除个位
+            int g = 1;
+            int f = 0;
+            while (f < n) {//循环n次
+                g = g * c;//各个位数累乘n次
+                f++;
+                if (f == n) {
+                    sum = sum + g;
+                }
+            }
+        }
+        if (sum == t) {//判断在while中每次判断成立输出
+            printf("%d\n", t);
+        }
+        sum = 0;//置0并重新下一次循环。
+        int h = 0;
+        t++;
+    }
+    return 0;
+}
