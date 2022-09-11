@@ -1,0 +1,40 @@
+{
+int n;
+scanf_s("%d", &n);
+int a=1;
+int b=1;
+int sum = 0;
+int h=0;
+while (a < n) {//根据输入的n位数，得到10^n
+	b = b * 10;
+	a++;
+}
+int t = b;
+int e = b;//另存b值，下面循环b值会被改变
+while (t < b * 10) {//将t值限制在该n位数内
+	int r = t;
+	for (h = 0; h < n;h++) {//从正序开始，将每位数单独取出
+		int c = r / b;//取该数第一位
+		r = r % b;//消除该数第一位，假设该数为103，则得到3
+		b /= 10;
+		int d = c;
+		int f = 0;
+		int g = 1;
+		while (f < n) {//循环n次
+			g = g * d;//对取出的每位数进行n次方计算
+			f++;
+			if (f == n) {
+				sum = sum + g;
+			}
+		}
+	}
+	if (sum == t) {
+		printf("%d\n", t);
+	}
+	sum=0;//置0并重新下一次循环。
+	b = e;//将b重置并重新下一次循环，注这个不能放在while的下一句，会导致t>b*10进而跳出while循环
+	t++;
+	h = 0;
+}
+return 0;
+}
