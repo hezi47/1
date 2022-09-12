@@ -1,0 +1,37 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+int M;
+int N;
+printf("请输入正整数M值与正整数N值，M<=N\n");
+scanf_s("%d %d",&M,&N);
+int cnt = 0;//cnt用于计算出范围内的素数数
+int a=2;//1不为素数，从2开始可以规避掉数字1
+int sum = 0;
+while (M <= N) {
+	int b = 1;//将b重置回1，进入下一次循环
+	while(a<M){
+		if (M % a == 0) {
+			b = 0;
+			M++;
+			a = 2;//将a重置回2，进入下一次循环
+			break;
+		}
+		else {
+			a++;
+		}
+	}
+	if (b == 1) {//注意不能写成b=1
+		printf("%d", M);
+		cnt++;
+		sum = sum + M;
+		M++;
+		a = 2;
+	}
+
+}
+printf("正整数M与正整数之间素数的个数为%d\n", cnt);
+printf("素数的和为%d", sum);
+return 0;
+}
