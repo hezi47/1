@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main（）
+{
+int a, b;
+scanf_s("%d/%d",&a,&b);
+int t;
+int c = a;//保存a的值
+int d = b;//保存b的值
+while (d != 0) {//用辗转相除法求出a与b的最大公约数
+	t = c % d;
+	c = d;
+	d = t;
+}
+printf("%d/%d\n", a/c, b/c);
+}
