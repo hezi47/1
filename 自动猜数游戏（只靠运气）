@@ -1,0 +1,59 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<iostream>
+int main()
+{
+    srand(time(0));
+    int x = rand() % 100+1;//生成区间在1-100的随机数
+    printf("系统要猜的数为%d,(范围为1-100)\n", x);
+    int n;
+    scanf_s("%d", &n);
+    printf("您选择猜的次数为%d次\n",n);
+    int cnt = 0;
+    int p = 0;//判断在n次内是否猜对数字
+    int number = rand() % 100+1;//生成区间在1-100的随机数
+    printf("%d ", number);
+    if (number == x) {
+        printf("恭喜您，仅用了%d次就猜对了", cnt);
+         p = 1;
+    }
+    else if (number > x) {
+        printf("猜的数太大了\n");
+    }
+    else {
+        printf("猜的数太小了\n");
+    }
+    int a = 0;
+    int b = 100;
+    int length =99;//区间的长度
+    while (cnt < n && p==0) {//将判断次数限制在n次内
+        cnt++;
+        if (number == x) {
+            printf("恭喜您，仅用了%d次就猜对了", cnt);
+            p = 1;
+            break;
+        }
+        else if (number > x) {
+            int c = b - number;//求出随机范围区间缩小的长度
+            length=length-c;//求出缩小后区间的长度
+            b = number; //重新定义区间的最大值
+            number = rand() % length + a;
+            printf("%d 猜的数太大了\n", number);
+        }
+        else {
+            int d = number - a;//求出随机范围区间缩小的长度
+            length=length-d;//求出缩小后区间的长度
+            a = number+1;//重新定义区间的最小值
+            number = rand() % length + a;
+            printf("%d 猜的数太小了\n", number);
+            length = length - 1;//因为a+1了,所以length需要减一
+        }
+
+    }
+    if (p == 0) {
+        printf("抱歉，你用了%d次也没猜对", cnt);
+    }
+    return 0;
+}
+          
