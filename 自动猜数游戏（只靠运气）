@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<iostream>
+//给定个n值，令系统在n次内自动猜数。
 int main()
 {
     srand(time(0));
@@ -56,4 +57,4 @@ int main()
     }
     return 0;
 }
-          
+
