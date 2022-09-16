@@ -1,0 +1,17 @@
+//给定一个a值和n值，假如a=3，n=4时对3，33，333，3333这四个数进行求和。
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+		  int a, n;
+		  scanf_s("%d %d", &a, &n);
+		  int sum = 0;
+		  int b;
+		  int c;
+		  for (b = 0; b <= n; b++) {
+			  c = c * 10 + a;
+			  sum += c;
+		  }
+		  printf("%d\n", sum);
+		  return 0;
+	  }
