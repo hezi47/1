@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+double sum = 0;
+int x;
+scanf_s("%d",& x);
+int cnt = 0;
+int number[100];
+while (x != 0) {
+	cnt++;
+    number[cnt] = x;
+	sum += x;
+	scanf_s("%d", &x);	
+}
+if (cnt > 0) {
+	int i;
+	double average = sum / cnt;
+	printf("%lf", average);
+	for (i = 0; i < cnt; i++) {
+		if (number[i] > average) {
+			printf("%d", number[i]);
+		}
+	}
+}
+return 0;
+}
