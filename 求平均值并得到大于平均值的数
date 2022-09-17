@@ -17,7 +17,7 @@ if (cnt > 0) {
 	int i;
 	double average = sum / cnt;
 	printf("%lf", average);
-	for (i = 0; i < cnt; i++) {
+	for (i = 0; i <= cnt; i++) {
 		if (number[i] > average) {
 			printf("%d", number[i]);
 		}
