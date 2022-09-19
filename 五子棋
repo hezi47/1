@@ -1,0 +1,103 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<time.h>
+#define size 3
+int main(void)
+{
+int board[size][size];
+int a,b;
+int X,O;
+int result =-1;//-1：没人赢，1：X赢，0:O赢
+//读入矩阵
+for (a = 0; a < size; a++) {
+	for (b = 0; b < size; b++) {
+		scanf_s("%d", &board[a][b]);//数字1表示X.数字0表示O.用其他数字表示此处并无勾选
+	}
+}
+//检查行
+for (a = 0; result == -1 && a < size; a++) {
+	X = O = 0;//重置数字，进入下一个循环
+	for (b = 0; b < size; b++) {
+		if (board[a][b] == 1) {
+			X++;
+		}
+		else {
+			O++;
+		}
+	}
+	if (X == size) {
+		result = 1;
+		break;
+	}
+	else if (O = size) {
+		result = 0;
+		break;
+	}
+}
+//检查列
+	for (b = 0; result == -1 && b < size; b++) {
+		X = O = 0;//重置数字，进入下一个循环
+		for (a = 0; a < size; a++) {
+			if (board[a][b] == 1) {
+				X++;
+			}
+			else {
+				O++;
+			}
+		}
+		if (X == size) {
+			result = 1;
+			break;
+		}
+		else if (O = size) {
+			result = 0;
+			break;
+		}
+	}
+//检查对角线
+	for (a= 0; result == -1 && a< size; b++) {
+		X = O = 0;//重置数字，进入下一个循环
+		for (a = 0; a < size; a++) {
+			if (board[a][a] == 1) {
+				X++;
+			}
+			else {
+				O++;
+			}
+		}
+		if (X == size) {
+			result = 1;
+			break;
+		}
+		else if (O = size) {
+			result = 0;
+			break;
+		}
+	}
+	for (a = 0; result = -1 && a < size; b++) {
+		X = O = 0;//重置数字，进入下一个循环
+		for (a = 0; a < size; a++) {
+			if (board[a][size-1-a] == 1) {
+				X++;
+			}
+			else {
+				O++;
+			}
+		}
+		if (X == size) {
+			result = 1;
+			break;
+		}
+		else if (O = size) {
+			result = 0;
+			break;
+		}
+	}
+	if (result == -1) {
+		printf("没有人赢");
+	}else if (result == 1) {
+		printf("X方赢");
+	}else {
+		printf("O方赢");
+	}
+}
