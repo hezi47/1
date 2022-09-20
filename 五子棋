@@ -21,7 +21,7 @@ for (a = 0; result == -1 && a < size; a++) {
 		if (board[a][b] == 1) {
 			X++;
 		}
-		else {
+		else if(board[a][b]==0){
 			O++;
 		}
 	}
@@ -41,7 +41,7 @@ for (a = 0; result == -1 && a < size; a++) {
 			if (board[a][b] == 1) {
 				X++;
 			}
-			else {
+			else if(board[a][b]==0){
 				O++;
 			}
 		}
@@ -61,7 +61,7 @@ for (a = 0; result == -1 && a < size; a++) {
 			if (board[a][a] == 1) {
 				X++;
 			}
-			else {
+			else if(board[a][b]==0){
 				O++;
 			}
 		}
@@ -80,7 +80,7 @@ for (a = 0; result == -1 && a < size; a++) {
 			if (board[a][size-1-a] == 1) {
 				X++;
 			}
-			else {
+			else if(board[a][b]==0){
 				O++;
 			}
 		}
