@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+//给定一个整数，写一个函数来判断它是否是 3 的幂次方。如果是，返回 true ；否则，返回 false 。
+int main()
+{
+int a;
+int b = 3;
+scanf_s("%d", &a);
+while (b < a) {
+	b = b * 3;
+	if (b == a) {
+		printf("ture"); \
+			break;
+	}
+	else if (b > a) {
+		printf("false");
+		break;
+	}
+}
+return 0;
+}
