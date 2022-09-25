@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+//给你一个整数 n 。如果 n 恰好有三个正除数 ，返回 true ；否则，返回 false 。
+//如4为ture(1,2,4),6为false(1,2,3,6)。
+int main()
+{
+	int n;
+	scanf_s("%d", &n);
+	int a;
+	for (a = 2;a <= n/2;a++){
+		if (n % a == 0) {
+			if (a * a == n) {
+				printf("ture");
+			}
+			else {
+				printf("false");
+			}
+		}
+	}
+}
