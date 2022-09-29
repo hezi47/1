@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+struct stu
+{
+	char name[20];
+	int age;
+	float score;
+};
+int main()
+{
+	struct stu s = { "张三",20,85.5 };
+	printf("1: %s %d %.1f\n",s.name,s.age,s.score);
+	struct stu * pa = &s;
+	printf("2: %s %d %.1f\n", (*pa).name,(*pa).age, (*pa).score);
+	return 0;
+}
