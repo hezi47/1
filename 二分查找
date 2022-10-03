@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
+#include<string.h>
 //查找该数位于数组的第几位
 //二分查找
 int main()
