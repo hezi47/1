@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main() {
+    int N, M;
+    scanf("%d%d", &N, &M);
+    int arr[N] = { 0 };//将数组内的数定义为0，便于后期将数字1表示为出圈
+    int number = N;//用来计算出出圈的人数
+    int count = 0;//用来报数
+    int a = 0;//代表每人的顺序值
+        while (count != M) {
+            if (arr[a]== 0) {
+                count++;
+                if (count == M) {
+                    printf("%d ",a+1);//数组内的数字总比顺序数小1
+                    arr[a] = 1;//标记为出圈
+                    count = 0;//重置count值，用于下次循环
+                    number--;//若出圈，是人数-1
+                    if (number == 0) {//当所有人都出圈时，退出循环
+                        break;
+                    }
+                }
+                a = (a + 1) % N;//闭环模型，顺序值可用a+1对人数取模来表示
+            }
+            if(arr[a]==1) {
+                a = (a + 1) % N;//闭环模型，顺序值可用a+1对人数取模来表示
+            }
+        }
+        return 0;
+}
